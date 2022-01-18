@@ -48,47 +48,66 @@ class StudentRepositoryTest {
 
     @Test
     public void getAllStudentsByFirstName() {
-        List<Student> studentList = studentRepository.findAllByFirstName("Souptik");
+        List<Student> studentList = studentRepository.findAllByFirstName(
+                "Souptik");
         System.out.println(studentList.toString());
     }
 
     @Test
     public void getStudentsByFirstNameContaining() {
-        List<Student> studentList = studentRepository.findByFirstNameContaining("ik");
+        List<Student> studentList =
+                studentRepository.findByFirstNameContaining("ik");
         System.out.println(studentList.toString());
     }
 
     @Test
     public void getStudentsByGuardianName() {
-        List<Student> studentList = studentRepository.findByGuardianName("Iruka Umino");
+        List<Student> studentList = studentRepository.findByGuardianName(
+                "Iruka Umino");
         System.out.println(studentList.toString());
     }
 
     @Test
     public void getStudentByFirstNameAndLastName() {
-        Student student = studentRepository.findByFirstNameAndLastName("Sasuke", "Uchiha");
+        Student student = studentRepository.findByFirstNameAndLastName(
+                "Sasuke", "Uchiha");
         System.out.println(student.toString());
     }
 
     @Test
     public void getStudentByEmailAddress() {
-        Student student = studentRepository.getStudentByEmailAddress("uzumakinaruto@gmail.com");
-        String studentName = studentRepository.getStudentNameByEmailAddress("uchihasasuke@gmail.com");
+        Student student = studentRepository.getStudentByEmailAddress(
+                "uzumakinaruto@gmail.com");
+        String studentName = studentRepository.getStudentNameByEmailAddress(
+                "uchihasasuke@gmail.com");
         System.out.println(student.toString());
         System.out.println(studentName);
     }
 
     @Test
     public void getStudentByEmailAddressNative() {
-        Student student = studentRepository.getStudentByEmailAddressNative("uzumakinaruto@gmail.com");
-        String studentName = studentRepository.getStudentNameByEmailAddressNative("uchihasasuke@gmail.com");
+        Student student = studentRepository.getStudentByEmailAddressNative(
+                "uzumakinaruto@gmail.com");
+        String studentName =
+                studentRepository.getStudentNameByEmailAddressNative(
+                        "uchihasasuke@gmail.com");
         System.out.println(student.toString());
         System.out.println(studentName);
     }
 
     @Test
     public void getStudentByEmailAddressNativeNamedParam() {
-        Student student = studentRepository.getStudentByEmailAddressNativeNamedParam("uzumakinaruto@gmail.com");
+        Student student =
+                studentRepository.getStudentByEmailAddressNativeNamedParam(
+                        "uzumakinaruto@gmail.com");
+        System.out.println(student.toString());
+    }
+
+    @Test
+    public void updateStudentFirstNameByEmailId() {
+        studentRepository.updateStudentFirstNameByEmailId("Itachi",
+                "uchihasasuke@gmail.com");
+        Student student = studentRepository.getStudentByEmailAddress("uchihasasuke@gmail.com");
         System.out.println(student.toString());
     }
 }
