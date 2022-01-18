@@ -1,9 +1,6 @@
 package com.all_relationships.relationships_springdatajpa.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,6 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+//@ToString(exclude = "course")
 public class CourseMaterial {
     @Id
     @SequenceGenerator(
@@ -26,7 +24,11 @@ public class CourseMaterial {
     private Long courseMaterialId;
     private String url;
 
-    @OneToOne
+    @OneToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER
+//            fetch = FetchType.LAZY
+    )
     @JoinColumn(
             name = "course_id",
             referencedColumnName = "courseId"

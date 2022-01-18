@@ -2,9 +2,12 @@ package com.all_relationships.relationships_springdatajpa.repository;
 
 import com.all_relationships.relationships_springdatajpa.entity.Course;
 import com.all_relationships.relationships_springdatajpa.entity.CourseMaterial;
+import lombok.ToString;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,5 +27,11 @@ class CourseMaterialRepositoryTest {
                 .course(course)
                 .build();
         courseMaterialRepository.save(courseMaterial);
+    }
+
+    @Test
+    public void printAllCourseMaterials() {
+        List<CourseMaterial> allCourseMaterials = courseMaterialRepository.findAll();
+        System.out.println("All Course Materials" + allCourseMaterials);
     }
 }
