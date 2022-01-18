@@ -110,4 +110,10 @@ class StudentRepositoryTest {
         Student student = studentRepository.getStudentByEmailAddress("uchihasasuke@gmail.com");
         System.out.println(student.toString());
     }
+
+    @Test
+    public void deleteStudentByEmailId() {
+        studentRepository.deleteStudentByEmailId("harunosakura@gmail.com");
+        System.out.println("Student has been successfully deleted");
+    }
 }
