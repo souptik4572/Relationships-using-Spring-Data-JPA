@@ -16,8 +16,7 @@ class StudentRepositoryTest {
 
     @Test
     public void saveStudent() {
-        Student student = Student.builder()
-                .emailId("souptiksarkar4572@gmail.com")
+        Student student = Student.builder().emailId("souptiksarkar4572@gmail.com")
                 .firstName("Souptik")
                 .lastName("Sarkar")
                 .build();
