@@ -115,4 +115,10 @@ class StudentRepositoryTest {
         studentRepository.deleteStudentByEmailId("harunosakura@gmail.com");
         System.out.println("Student has been successfully deleted");
     }
+
+    @Test
+    public void deleteStudentByFirstNameAndLastName() {
+        studentRepository.deleteStudentByFirstNameAndLastName("Sakura", "Haruno");
+        System.out.println("Student has been deleted successfully");
+    }
 }
