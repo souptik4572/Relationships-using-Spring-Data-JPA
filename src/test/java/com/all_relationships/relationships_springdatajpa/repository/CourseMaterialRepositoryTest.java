@@ -15,15 +15,15 @@ class CourseMaterialRepositoryTest {
 
     @Test
     public void saveCourseMaterial() {
-        Course course = Course.builder()
-                .title("Data Structures and Algorithms")
-                .credit(10)
+        Course taijutsuCourse = Course.builder()
+                .title("TaiJutsu")
+                .credit(9)
                 .build();
-        CourseMaterial courseMaterial = CourseMaterial.builder()
-                .url("course_url")
-                .course(course)
+        CourseMaterial taijutsuCourseMaterial = CourseMaterial.builder()
+                .url("taijutsu_course_url")
+                .course(taijutsuCourse)
                 .build();
-        courseMaterialRepository.save(courseMaterial);
+        courseMaterialRepository.save(taijutsuCourseMaterial);
     }
 
     @Test

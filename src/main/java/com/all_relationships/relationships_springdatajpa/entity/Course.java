@@ -9,7 +9,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@ToString(exclude = "courseMaterial")
+//@ToString(exclude = "courseMaterial")
 public class Course {
     @Id
     @SequenceGenerator(
@@ -26,7 +26,21 @@ public class Course {
     private Integer credit;
 
     @OneToOne(
-            mappedBy = "course"
+            cascade = CascadeType.ALL,
+            fetch = FetchType.EAGER,
+            optional = false
+    )
+    @JoinColumn(
+            name = "course_material_id",
+            referencedColumnName = "courseMaterialId"
     )
     private CourseMaterial courseMaterial;
+    @ManyToOne(
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(
+            name = "teacher_id",
+            referencedColumnName = "teacherId"
+    )
+    private Teacher teacher;
 }
